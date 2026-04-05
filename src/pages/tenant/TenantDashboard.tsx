@@ -4,7 +4,7 @@ import { MapPin, Calendar, DollarSign, Clipboard, Bell, Wrench, ChevronRight, Al
 const LEASE = {
   propertyAddress: '12 Kings Park Rd, West Perth WA 6005',
   lessorName: 'Patricia Wong',
-  agentName: 'Sarah Mitchell',
+  portfolioManagerName: 'Sarah Mitchell',
   agentPhone: '0411 234 567',
   agentEmail: 's.mitchell@pms.com',
   leaseStart: '1 Oct 2025',
@@ -94,7 +94,7 @@ export default function TenantDashboard() {
           </div>
           <div>
             <p className="text-xs text-gray-400 mb-0.5">Property Manager</p>
-            <p className="font-medium text-gray-700">{LEASE.agentName}</p>
+            <p className="font-medium text-gray-700">{LEASE.portfolioManagerName}</p>
             <p className="text-xs text-gray-400">{LEASE.agentPhone}</p>
           </div>
         </div>

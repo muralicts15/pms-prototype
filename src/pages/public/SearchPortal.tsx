@@ -22,12 +22,12 @@ export default function SearchPortal() {
       <header className="bg-white border-b border-gray-200 px-6 py-3">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center text-white text-xs font-bold">P</div>
-            <span className="font-bold text-gray-900">PMS Rentals</span>
+            <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center text-white text-xs font-bold">A</div>
+            <span className="font-bold text-gray-900">A2Z Rentals</span>
           </div>
           <div className="flex gap-3">
             <button className="btn-secondary text-sm" onClick={() => navigate('/applicant/login')}>Log In</button>
-            <button className="btn-primary text-sm" onClick={() => navigate('/agent/properties')}>Agent Portal</button>
+            <button className="btn-primary text-sm" onClick={() => navigate('/pm/properties')}>Portfolio Portal</button>
           </div>
         </div>
       </header>

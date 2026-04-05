@@ -83,7 +83,7 @@ export default function RentDashboard() {
             <div
               key={lease.id}
               className={`card border p-4 hover:shadow-md transition-shadow cursor-pointer ${hasOverdue ? OVERDUE_COLOR : NORMAL_COLOR}`}
-              onClick={() => navigate(`/agent/rent/${lease.id}`)}
+              onClick={() => navigate(`/pm/rent/${lease.id}`)}
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-start gap-3">
@@ -119,7 +119,7 @@ export default function RentDashboard() {
                   </div>
                   <button
                     className="btn-primary text-sm flex items-center gap-1"
-                    onClick={e => { e.stopPropagation(); navigate(`/agent/rent/${lease.id}`) }}
+                    onClick={e => { e.stopPropagation(); navigate(`/pm/rent/${lease.id}`) }}
                   >
                     Ledger <ChevronRight size={14} />
                   </button>

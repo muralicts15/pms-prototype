@@ -162,7 +162,7 @@ export const APPLICATIONS: Application[] = [
 const SIGNED_PARTIES = (lessor: string, tenant: string): ESignParty[] => [
   { role: 'LESSOR', name: lessor,          email: 'lessor@email.com',        status: 'SIGNED', signedAt: '15 Mar 2026' },
   { role: 'TENANT', name: tenant,          email: 'tenant@email.com',        status: 'SIGNED', signedAt: '16 Mar 2026' },
-  { role: 'AGENT',  name: 'Sarah Mitchell',email: 's.mitchell@pms.com',      status: 'SIGNED', signedAt: '16 Mar 2026' },
+  { role: 'PORTFOLIO_MANAGER',  name: 'Sarah Mitchell',email: 's.mitchell@pms.com',      status: 'SIGNED', signedAt: '16 Mar 2026' },
 ]
 
 export const LEASES: Lease[] = [
@@ -170,14 +170,14 @@ export const LEASES: Lease[] = [
     id: 'lease-001', propertyId: 'prop-005',
     propertyAddress: '33 Hay St, Subiaco WA 6008',
     tenantName: 'Sarah Johnson', tenantEmail: 'sarah.j@email.com',
-    lessorName: 'Robert & Mary Thompson', agentName: 'Sarah Mitchell',
+    lessorName: 'Robert & Mary Thompson', portfolioManagerName: 'Sarah Mitchell',
     status: 'GENERATED', stageLabel: 'Generated',
     leaseStart: '1 May 2026', leaseEnd: '30 Apr 2027',
     weeklyRent: 480, bondAmount: 1920, agreementType: 'Fixed Term',
     parties: [
       { role: 'LESSOR', name: 'Robert Thompson', email: 'r.thompson@email.com', status: 'PENDING' },
       { role: 'TENANT', name: 'Sarah Johnson',   email: 'sarah.j@email.com',   status: 'PENDING' },
-      { role: 'AGENT',  name: 'Sarah Mitchell',  email: 's.mitchell@pms.com',  status: 'PENDING' },
+      { role: 'PORTFOLIO_MANAGER',  name: 'Sarah Mitchell',  email: 's.mitchell@pms.com',  status: 'PENDING' },
     ],
     allowedActions: [{ code: 'SEND_FOR_SIGNATURE', label: 'Send for Signature', variant: 'primary' }],
     bondId: 'bond-001',
@@ -186,7 +186,7 @@ export const LEASES: Lease[] = [
     id: 'lease-002', propertyId: 'prop-003',
     propertyAddress: '12 Kings Park Rd, West Perth WA 6005',
     tenantName: 'Michael Chen', tenantEmail: 'm.chen@email.com',
-    lessorName: 'Patricia Wong', agentName: 'Sarah Mitchell',
+    lessorName: 'Patricia Wong', portfolioManagerName: 'Sarah Mitchell',
     status: 'ACTIVE', stageLabel: 'Active',
     leaseStart: '1 Oct 2025', leaseEnd: '30 May 2026',
     weeklyRent: 750, bondAmount: 3000, agreementType: 'Fixed Term',
@@ -198,7 +198,7 @@ export const LEASES: Lease[] = [
     id: 'lease-003', propertyId: 'prop-004',
     propertyAddress: '5 Mill Point Rd, South Perth WA 6151',
     tenantName: 'Emma Williams', tenantEmail: 'e.williams@email.com',
-    lessorName: 'James & Helen Barrett', agentName: 'Sarah Mitchell',
+    lessorName: 'James & Helen Barrett', portfolioManagerName: 'Sarah Mitchell',
     status: 'ACTIVE', stageLabel: 'Active',
     leaseStart: '1 Jan 2026', leaseEnd: '31 Dec 2026',
     weeklyRent: 600, bondAmount: 2400, agreementType: 'Fixed Term',
@@ -210,7 +210,7 @@ export const LEASES: Lease[] = [
     id: 'lease-004', propertyId: 'prop-002',
     propertyAddress: '8 Ocean Drive, Cottesloe WA 6011',
     tenantName: 'David & Lisa Park', tenantEmail: 'd.park@email.com',
-    lessorName: 'Sunita Kapoor', agentName: 'Sarah Mitchell',
+    lessorName: 'Sunita Kapoor', portfolioManagerName: 'Sarah Mitchell',
     status: 'NOTICE_GIVEN', stageLabel: 'Notice Given',
     leaseStart: '1 Jun 2025', leaseEnd: '31 May 2026',
     weeklyRent: 550, bondAmount: 2200, agreementType: 'Fixed Term',
@@ -222,7 +222,7 @@ export const LEASES: Lease[] = [
     id: 'lease-005', propertyId: 'prop-001',
     propertyAddress: '24 Chapel St, Brighton WA 6020',
     tenantName: 'James & Priya Nair', tenantEmail: 'james.nair@email.com',
-    lessorName: 'George Papadopoulos', agentName: 'Sarah Mitchell',
+    lessorName: 'George Papadopoulos', portfolioManagerName: 'Sarah Mitchell',
     status: 'ENDED', stageLabel: 'Ended',
     leaseStart: '1 Apr 2025', leaseEnd: '31 Mar 2026',
     weeklyRent: 620, bondAmount: 2480, agreementType: 'Fixed Term',
@@ -380,9 +380,9 @@ export const RENT_SCHEDULES: RentSchedule[] = [
 ]
 
 export const PROPERTY_TIMELINE: TimelineEntry[] = [
-  { id: 't1', action: 'Applications closed',  actor: 'Sarah (Agent)', timestamp: '31 Mar 2026, 9:00am' },
-  { id: 't2', action: 'Applications opened',  actor: 'Sarah (Agent)', timestamp: '24 Mar 2026, 11:30am' },
-  { id: 't3', action: 'Listing published',     actor: 'Sarah (Agent)', timestamp: '20 Mar 2026, 2:00pm' },
-  { id: 't4', action: 'Marked ready to list',  actor: 'Sarah (Agent)', timestamp: '18 Mar 2026, 4:15pm' },
-  { id: 't5', action: 'Property created',      actor: 'Sarah (Agent)', timestamp: '15 Mar 2026, 10:00am' },
+  { id: 't1', action: 'Applications closed',  actor: 'Sarah (Portfolio Manager)', timestamp: '31 Mar 2026, 9:00am' },
+  { id: 't2', action: 'Applications opened',  actor: 'Sarah (Portfolio Manager)', timestamp: '24 Mar 2026, 11:30am' },
+  { id: 't3', action: 'Listing published',     actor: 'Sarah (Portfolio Manager)', timestamp: '20 Mar 2026, 2:00pm' },
+  { id: 't4', action: 'Marked ready to list',  actor: 'Sarah (Portfolio Manager)', timestamp: '18 Mar 2026, 4:15pm' },
+  { id: 't5', action: 'Property created',      actor: 'Sarah (Portfolio Manager)', timestamp: '15 Mar 2026, 10:00am' },
 ]

@@ -116,7 +116,7 @@ export default function PropertyDetail() {
       {/* Back */}
       <button
         className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700 mb-4"
-        onClick={() => navigate('/agent/properties')}
+        onClick={() => navigate('/pm/properties')}
       >
         <ArrowLeft size={14} /> Back to Properties
       </button>

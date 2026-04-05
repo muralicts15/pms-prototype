@@ -104,7 +104,7 @@ export default function ApplicationList() {
     ))
     setApproveTarget(null)
     // Navigate to lease
-    navigate('/agent/leases/lease-001')
+    navigate('/pm/leases/lease-001')
   }
 
   const filtered = apps.filter(a => {
@@ -220,7 +220,7 @@ export default function ApplicationList() {
                   <button
                     className="btn-ghost p-2 text-gray-500"
                     title="View application"
-                    onClick={() => navigate(`/agent/applications/${app.id}`)}
+                    onClick={() => navigate(`/pm/applications/${app.id}`)}
                   >
                     <Eye size={16} />
                   </button>
@@ -271,7 +271,7 @@ export default function ApplicationList() {
                   </span>
                   <button
                     className="btn-secondary text-xs"
-                    onClick={() => navigate('/agent/leases/lease-001')}
+                    onClick={() => navigate('/pm/leases/lease-001')}
                   >
                     View Lease →
                   </button>

@@ -1,18 +1,21 @@
 import { useNavigate, useParams } from 'react-router-dom'
-import { ArrowLeft, FileText, User, Briefcase, Home, Users, Phone, Mail } from 'lucide-react'
+import { ArrowLeft, FileText, User, Briefcase, Home, Users, Phone, Mail, CheckCircle, Star } from 'lucide-react'
 import StatusBadge from '../../components/StatusBadge'
 import { APPLICATIONS } from '../../data/mockData'
+import { useRole } from '../../context/RoleContext'
 
 export default function ApplicationDetail() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const { currentRole } = useRole()
   const app = APPLICATIONS.find(a => a.id === id) ?? APPLICATIONS[0]
+  const isPD = currentRole === 'PORTFOLIO_DIRECTOR'
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
       <button
         className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700 mb-4"
-        onClick={() => navigate('/agent/applications')}
+        onClick={() => navigate('/pm/applications')}
       >
         <ArrowLeft size={14} /> Back to Applications
       </button>
@@ -116,13 +119,35 @@ export default function ApplicationDetail() {
 
         {/* Sidebar */}
         <div className="space-y-4">
-          <div className="card p-4 bg-amber-50 border-amber-100">
-            <p className="text-xs font-semibold text-amber-700 uppercase tracking-wide mb-1">PM Actions</p>
-            <p className="text-xs text-amber-600 mb-3">Rate and manage this application from the Applications list screen.</p>
-            <button className="btn-secondary w-full text-sm" onClick={() => navigate('/agent/applications')}>
-              ← Back to Rate & Shortlist
-            </button>
-          </div>
+
+          {/* PD only — approve for offer */}
+          {isPD && app.status === 'SUBMITTED' && (
+            <div className="card p-4 bg-green-50 border-green-200">
+              <p className="text-xs font-semibold text-green-700 uppercase tracking-wide mb-1 flex items-center gap-1.5">
+                <CheckCircle size={13} /> Portfolio Director
+              </p>
+              <p className="text-xs text-green-600 mb-3">You have final approval authority for this application.</p>
+              <button className="btn-primary w-full text-sm mb-2 flex items-center justify-center gap-1.5">
+                <CheckCircle size={14} /> Approve for Offer
+              </button>
+              <button className="btn-danger w-full text-sm">Hard Reject</button>
+            </div>
+          )}
+
+          {/* PM only — review panel */}
+          {!isPD && (
+            <div className="card p-4 bg-amber-50 border-amber-100">
+              <p className="text-xs font-semibold text-amber-700 uppercase tracking-wide mb-1 flex items-center gap-1.5">
+                <Star size={13} /> Portfolio Manager
+              </p>
+              <p className="text-xs text-amber-600 mb-3">Rate and shortlist this application. Final approval requires a Portfolio Director.</p>
+              <button className="btn-secondary w-full text-sm mb-2">Rate & Shortlist</button>
+              <button className="btn-secondary w-full text-sm" onClick={() => navigate('/pm/applications')}>
+                ← Back to Applications
+              </button>
+            </div>
+          )}
+
 
           <div className="card p-4">
             <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Documents</p>

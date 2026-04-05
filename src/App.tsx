@@ -40,11 +40,11 @@ export default function App() {
   return (
     <Routes>
       {/* Default redirect */}
-      <Route path="/" element={<Navigate to="/agent/properties" replace />} />
+      <Route path="/" element={<Navigate to="/pm/properties" replace />} />
 
       {/* Agent portal — with sidebar layout */}
-      <Route path="/agent" element={<AppLayout />}>
-        <Route index element={<Navigate to="/agent/properties" replace />} />
+      <Route path="/pm" element={<AppLayout />}>
+        <Route index element={<Navigate to="/pm/properties" replace />} />
         <Route path="properties"                    element={<PropertyList />} />
         <Route path="properties/new"                element={<PropertyWizard />} />
         <Route path="properties/:id"                element={<PropertyDetail />} />
@@ -83,7 +83,7 @@ export default function App() {
       </Route>
 
       {/* Catch-all */}
-      <Route path="*" element={<Navigate to="/agent/properties" replace />} />
+      <Route path="*" element={<Navigate to="/pm/properties" replace />} />
     </Routes>
   )
 }

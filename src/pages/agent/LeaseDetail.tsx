@@ -58,8 +58,8 @@ function LeaseStepper({ current }: { current: LeaseStatus }) {
 }
 
 // ─── E-Sign party card ────────────────────────────────────────────
-const PARTY_ICONS = { LESSOR: Building2, TENANT: User, AGENT: Briefcase }
-const PARTY_LABELS = { LESSOR: 'Lessor / Owner', TENANT: 'Tenant', AGENT: 'Agent (PM)' }
+const PARTY_ICONS = { LESSOR: Building2, TENANT: User, PORTFOLIO_MANAGER: Briefcase }
+const PARTY_LABELS = { LESSOR: 'Lessor (Portfolio Director)', TENANT: 'Tenant', PORTFOLIO_MANAGER: 'Portfolio Manager' }
 
 function PartyCard({ party, onAdvance, disabled }: {
   party: ESignParty
@@ -404,7 +404,7 @@ export default function LeaseDetail() {
 
   return (
     <div className="p-6 max-w-5xl mx-auto">
-      <button className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700 mb-4" onClick={() => navigate('/agent/leases')}>
+      <button className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700 mb-4" onClick={() => navigate('/pm/leases')}>
         <ArrowLeft size={14} /> Back to Leases
       </button>
 
@@ -416,7 +416,7 @@ export default function LeaseDetail() {
             <p className="font-semibold text-pink-800">Tenant is vacating — relist this property?</p>
             <p className="text-sm text-pink-600">You can list the property now with a future available date so new applications come in before the tenant leaves.</p>
           </div>
-          <button className="btn-primary text-sm" onClick={() => navigate('/agent/properties/prop-005')}>
+          <button className="btn-primary text-sm" onClick={() => navigate('/pm/properties/prop-005')}>
             Relist Property <ChevronRight size={14} />
           </button>
         </div>
@@ -437,7 +437,7 @@ export default function LeaseDetail() {
           </div>
           <div className="flex gap-2">
             {isTenancyPhase && (
-              <button className="btn-secondary text-sm flex items-center gap-1.5" onClick={() => navigate('/agent/rent/rent-001')}>
+              <button className="btn-secondary text-sm flex items-center gap-1.5" onClick={() => navigate('/pm/rent/rent-001')}>
                 <DollarSign size={13} /> Rent Ledger
               </button>
             )}
@@ -515,7 +515,7 @@ export default function LeaseDetail() {
                   <div className="flex items-center gap-3">
                     <button
                       className="btn-secondary text-sm flex items-center gap-1.5"
-                      onClick={() => navigate('/agent/bonds')}
+                      onClick={() => navigate('/pm/bonds')}
                     >
                       <DollarSign size={13} /> Go to Bond Module
                     </button>
@@ -597,7 +597,7 @@ export default function LeaseDetail() {
                   </div>
                   <button
                     className="btn-secondary text-sm flex items-center gap-1.5"
-                    onClick={() => navigate('/agent/pcr/pcr-001')}
+                    onClick={() => navigate('/pm/pcr/pcr-001')}
                   >
                     <Clipboard size={13} /> Open Entry PCR
                   </button>
@@ -825,7 +825,7 @@ export default function LeaseDetail() {
                   </div>
                   {!defaultNoticeIssued ? (
                     <div className="flex gap-2">
-                      <button className="btn-secondary text-sm" onClick={() => navigate('/agent/rent/rent-001')}>
+                      <button className="btn-secondary text-sm" onClick={() => navigate('/pm/rent/rent-001')}>
                         <DollarSign size={13} /> View Rent Ledger
                       </button>
                       <button className="btn-danger text-sm flex items-center gap-1.5" onClick={() => {
@@ -866,7 +866,7 @@ export default function LeaseDetail() {
                   </div>
                   {!pcrNoticeIssued ? (
                     <div className="flex gap-2">
-                      <button className="btn-secondary text-sm flex items-center gap-1.5" onClick={() => navigate('/agent/pcr/pcr-quarterly')}>
+                      <button className="btn-secondary text-sm flex items-center gap-1.5" onClick={() => navigate('/pm/pcr/pcr-quarterly')}>
                         <Clipboard size={13} /> View Quarterly PCR
                       </button>
                       <button className="btn-primary text-sm flex items-center gap-1.5" disabled={!pcrBreachItems.trim()} onClick={() => {
@@ -880,7 +880,7 @@ export default function LeaseDetail() {
                     <div className="space-y-2">
                       <div className="flex items-center gap-2 text-green-700 text-xs font-medium"><CheckCircle2 size={12} /> Breach notice issued — tenant has 14 days to remedy</div>
                       <div className="flex gap-2">
-                        <button className="btn-secondary text-sm" onClick={() => navigate('/agent/pcr/pcr-quarterly')}>Follow Up in PCR</button>
+                        <button className="btn-secondary text-sm" onClick={() => navigate('/pm/pcr/pcr-quarterly')}>Follow Up in PCR</button>
                         <button className="btn-danger text-sm flex items-center gap-1.5" onClick={() => {
                           addTimeline('PCR breach unresolved — Form 21 issued. Tenancy to be terminated.')
                           giveNotice('Tenancy terminated — PCR breach unresolved after notice period (Form 21 issued)')
@@ -911,10 +911,10 @@ export default function LeaseDetail() {
                 Exit PCR has been created. You can relist this property now with a future available date.
               </div>
               <div className="flex gap-2">
-                <button className="btn-primary text-sm" onClick={() => navigate('/agent/pcr/pcr-exit')}>
+                <button className="btn-primary text-sm" onClick={() => navigate('/pm/pcr/pcr-exit')}>
                   <Clipboard size={13} /> View Exit PCR
                 </button>
-                <button className="btn-secondary text-sm" onClick={() => navigate('/agent/properties/prop-005')}>
+                <button className="btn-secondary text-sm" onClick={() => navigate('/pm/properties/prop-005')}>
                   <Home size={13} /> Relist Property
                 </button>
                 <button className="btn-ghost text-sm text-orange-600" onClick={startVacating}>
@@ -963,7 +963,7 @@ export default function LeaseDetail() {
                 <div><p className="text-xs text-gray-400">Bond</p><p className="font-medium text-blue-600">Disposal Required</p></div>
               </div>
               {source.bondId && (
-                <button className="btn-secondary text-sm flex items-center gap-1.5" onClick={() => navigate(`/agent/bonds/${source.bondId}`)}>
+                <button className="btn-secondary text-sm flex items-center gap-1.5" onClick={() => navigate(`/pm/bonds/${source.bondId}`)}>
                   <DollarSign size={13} /> Go to Bond Disposal
                 </button>
               )}
@@ -1046,19 +1046,19 @@ export default function LeaseDetail() {
               )}
               {leaseStatus === 'ACTIVE' && (
                 <>
-                  <button className="btn-secondary w-full text-sm flex items-center justify-center gap-1.5" onClick={() => navigate('/agent/pcr/pcr-001')}>
+                  <button className="btn-secondary w-full text-sm flex items-center justify-center gap-1.5" onClick={() => navigate('/pm/pcr/pcr-001')}>
                     <Clipboard size={13} /> Entry PCR
                   </button>
-                  <button className="btn-secondary w-full text-sm flex items-center justify-center gap-1.5" onClick={() => navigate('/agent/rent/rent-001')}>
+                  <button className="btn-secondary w-full text-sm flex items-center justify-center gap-1.5" onClick={() => navigate('/pm/rent/rent-001')}>
                     <DollarSign size={13} /> Rent Ledger
                   </button>
-                  <button className="btn-ghost w-full text-sm flex items-center justify-center gap-1.5 text-blue-600" onClick={() => navigate('/agent/pcr/pcr-quarterly')}>
+                  <button className="btn-ghost w-full text-sm flex items-center justify-center gap-1.5 text-blue-600" onClick={() => navigate('/pm/pcr/pcr-quarterly')}>
                     <Clipboard size={13} /> + New Inspection
                   </button>
                 </>
               )}
               {leaseStatus === 'FULLY_SIGNED' && (
-                <button className="btn-secondary w-full text-sm flex items-center justify-center gap-1.5" onClick={() => navigate(`/agent/bonds/${source.bondId}`)}>
+                <button className="btn-secondary w-full text-sm flex items-center justify-center gap-1.5" onClick={() => navigate(`/pm/bonds/${source.bondId}`)}>
                   <DollarSign size={14} /> View Bond
                 </button>
               )}

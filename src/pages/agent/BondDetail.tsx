@@ -310,7 +310,7 @@ export default function BondDetail() {
       {/* Back */}
       <button
         className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-700 mb-4"
-        onClick={() => navigate('/agent/leases')}
+        onClick={() => navigate('/pm/leases')}
       >
         <ArrowLeft size={14} /> Back to Leases
       </button>
@@ -327,7 +327,7 @@ export default function BondDetail() {
           </div>
           <button
             className="btn-secondary text-xs flex items-center gap-1"
-            onClick={() => navigate('/agent/properties')}
+            onClick={() => navigate('/pm/properties')}
           >
             View Property <ChevronRight size={12} />
           </button>
@@ -352,7 +352,7 @@ export default function BondDetail() {
           </div>
           <button
             className="btn-secondary text-sm flex items-center gap-1.5"
-            onClick={() => navigate(`/agent/leases/lease-001`)}
+            onClick={() => navigate(`/pm/leases/lease-001`)}
           >
             <FileText size={14} /> View Lease
           </button>
@@ -647,7 +647,7 @@ export default function BondDetail() {
                     </div>
                     <button
                       className="btn-primary text-sm whitespace-nowrap flex items-center gap-1.5"
-                      onClick={() => navigate(`/agent/leases/${source.leaseId}`)}
+                      onClick={() => navigate(`/pm/leases/${source.leaseId}`)}
                     >
                       <FileText size={14} /> Give Feedback
                     </button>

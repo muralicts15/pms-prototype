@@ -16,7 +16,7 @@ export default function PropertyList() {
         </div>
         <button
           className="btn-primary"
-          onClick={() => navigate('/agent/properties/new')}
+          onClick={() => navigate('/pm/properties/new')}
         >
           <Plus size={16} />
           Add Property
@@ -45,7 +45,7 @@ export default function PropertyList() {
           <div
             key={property.id}
             className="card p-4 hover:shadow-md transition-shadow cursor-pointer"
-            onClick={() => navigate(`/agent/properties/${property.id}`)}
+            onClick={() => navigate(`/pm/properties/${property.id}`)}
           >
             <div className="flex items-start justify-between gap-4">
               {/* Photo placeholder */}

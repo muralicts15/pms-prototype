@@ -15,7 +15,7 @@ interface PCRRecord {
   type: 'ENTRY' | 'QUARTERLY' | 'EXIT'
   status: PCRStatus
   date: string
-  agentName: string
+  portfolioManagerName: string
   items: PCRItem[]
 }
 
@@ -25,7 +25,7 @@ const PCRS: PCRRecord[] = [
     type: 'QUARTERLY',
     status: 'AWAITING_TENANT_REVIEW',
     date: '15 Apr 2026',
-    agentName: 'Sarah Mitchell',
+    portfolioManagerName: 'Sarah Mitchell',
     items: [
       { area: 'Kitchen',        condition: 'Good',       notes: 'Clean and tidy. Minor grease marks on rangehood — please wipe down.',     photoCount: 2 },
       { area: 'Living Room',    condition: 'Good',       notes: 'Well maintained.',                                                          photoCount: 1 },
@@ -39,7 +39,7 @@ const PCRS: PCRRecord[] = [
     type: 'ENTRY',
     status: 'FINALIZED',
     date: '1 Oct 2025',
-    agentName: 'Sarah Mitchell',
+    portfolioManagerName: 'Sarah Mitchell',
     items: [
       { area: 'Kitchen',        condition: 'Excellent', notes: 'Newly renovated. All appliances working.',   photoCount: 4 },
       { area: 'Living Room',    condition: 'Excellent', notes: 'Freshly painted.',                           photoCount: 2 },
@@ -83,7 +83,7 @@ function PCRCard({ pcr }: { pcr: PCRRecord }) {
           <Clipboard size={16} className="text-gray-400" />
           <div className="text-left">
             <p className="text-sm font-semibold text-gray-800">{TYPE_LABELS[pcr.type]}</p>
-            <p className="text-xs text-gray-400">{pcr.date} · {pcr.agentName}</p>
+            <p className="text-xs text-gray-400">{pcr.date} · {pcr.portfolioManagerName}</p>
           </div>
         </div>
         <div className="flex items-center gap-2">

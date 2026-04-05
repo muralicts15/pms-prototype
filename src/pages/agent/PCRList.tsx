@@ -33,14 +33,14 @@ export default function PCRList() {
           <h1 className="text-2xl font-bold text-gray-900">Property Condition Reports</h1>
           <p className="text-sm text-gray-500 mt-0.5">Entry, quarterly inspections, and exit PCRs</p>
         </div>
-        <button className="btn-primary text-sm flex items-center gap-1.5" onClick={() => navigate('/agent/pcr/pcr-quarterly')}>
+        <button className="btn-primary text-sm flex items-center gap-1.5" onClick={() => navigate('/pm/pcr/pcr-quarterly')}>
           <Plus size={14} /> New Inspection
         </button>
       </div>
 
       <div className="space-y-3">
         {MOCK_PCRS.map(pcr => (
-          <div key={pcr.id} className="card p-4 hover:shadow-md transition-shadow cursor-pointer" onClick={() => navigate(`/agent/pcr/${pcr.id}`)}>
+          <div key={pcr.id} className="card p-4 hover:shadow-md transition-shadow cursor-pointer" onClick={() => navigate(`/pm/pcr/${pcr.id}`)}>
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -60,7 +60,7 @@ export default function PCRList() {
               </div>
               <button
                 className="btn-primary text-sm flex items-center gap-1 flex-shrink-0"
-                onClick={e => { e.stopPropagation(); navigate(`/agent/pcr/${pcr.id}`) }}
+                onClick={e => { e.stopPropagation(); navigate(`/pm/pcr/${pcr.id}`) }}
               >
                 Open <ChevronRight size={14} />
               </button>

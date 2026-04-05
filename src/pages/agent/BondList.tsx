@@ -20,7 +20,7 @@ export default function BondList() {
             <div
               key={bond.id}
               className="card p-4 hover:shadow-md transition-shadow cursor-pointer"
-              onClick={() => navigate(`/agent/bonds/${bond.id}`)}
+              onClick={() => navigate(`/pm/bonds/${bond.id}`)}
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-start gap-3">
@@ -56,7 +56,7 @@ export default function BondList() {
                 </div>
                 <button
                   className="btn-primary text-sm flex items-center gap-1 flex-shrink-0"
-                  onClick={e => { e.stopPropagation(); navigate(`/agent/bonds/${bond.id}`) }}
+                  onClick={e => { e.stopPropagation(); navigate(`/pm/bonds/${bond.id}`) }}
                 >
                   Manage <ChevronRight size={14} />
                 </button>

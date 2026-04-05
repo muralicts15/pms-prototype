@@ -81,7 +81,7 @@ export interface Application {
 }
 
 export interface ESignParty {
-  role: 'LESSOR' | 'TENANT' | 'AGENT'
+  role: 'LESSOR' | 'TENANT' | 'PORTFOLIO_MANAGER'
   name: string
   email: string
   status: ESignPartyStatus
@@ -95,7 +95,7 @@ export interface Lease {
   tenantName: string
   tenantEmail: string
   lessorName: string
-  agentName: string
+  portfolioManagerName: string
   status: LeaseStatus
   stageLabel: string
   leaseStart: string

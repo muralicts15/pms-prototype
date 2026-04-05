@@ -18,7 +18,7 @@ export default function LeaseList() {
           <div
             key={lease.id}
             className="card p-4 hover:shadow-md transition-shadow cursor-pointer"
-            onClick={() => navigate(`/agent/leases/${lease.id}`)}
+            onClick={() => navigate(`/pm/leases/${lease.id}`)}
           >
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-start gap-3">
@@ -45,14 +45,14 @@ export default function LeaseList() {
               <div className="flex items-center gap-2 flex-shrink-0">
                 <button
                   className="btn-primary text-sm flex items-center gap-1"
-                  onClick={e => { e.stopPropagation(); navigate(`/agent/leases/${lease.id}`) }}
+                  onClick={e => { e.stopPropagation(); navigate(`/pm/leases/${lease.id}`) }}
                 >
                   Open <ChevronRight size={14} />
                 </button>
                 {lease.bondId && (
                   <button
                     className="btn-secondary text-sm flex items-center gap-1"
-                    onClick={e => { e.stopPropagation(); navigate(`/agent/bonds/${lease.bondId}`) }}
+                    onClick={e => { e.stopPropagation(); navigate(`/pm/bonds/${lease.bondId}`) }}
                   >
                     <DollarSign size={13} /> Bond
                   </button>
